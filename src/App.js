@@ -1,5 +1,6 @@
 import ResponsiveDrawer from "./pages/Dashboard";
 import Sidebar from "./components/Sidebar";
+import Dashboard from "./pages/Dashboard";
 
 const subscriptions = ["Subscription 1", "Subscription 2", "Subscription 3"];
 const resourceGroups = [
@@ -13,15 +14,10 @@ const otherOptions = ["Option 1", "Option 2", "Option 3"];
 function App() {
   return (
     <div className="app">
-      <header className="App-header">
-        <Sidebar
-          subscriptions={subscriptions}
-          resourceGroups={resourceGroups}
-          resources={resources}
-          otherOptions={otherOptions}
-        />
-        <h1>Main Content</h1>
-      </header>
+    
+      <Dashboard />
+        
+     
     </div>
   );
 }

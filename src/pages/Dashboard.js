@@ -1,19 +1,13 @@
 import React from "react";
 import "./Dashboard.css";
+import "./Dashboard.css";
+import Sidebar from "../components/Sidebar";
 
 const Dashboard = () => {
   return (
-    <div className="dashboard">
-      <div className="sidebar">{/* Sidebar content */}</div>
-      <div className="cards">
-        <div className="card">{/* Card content */}</div>
-        <div className="card">{/* Card content */}</div>
-        <div className="card">{/* Card content */}</div>
-      </div>
-      <div className="big-components">
-        <div className="big-component">{/* Big component content */}</div>
-        <div className="big-component">{/* Big component content */}</div>
-      </div>
+    <div className="maincontainer">
+      <div className="sidebar"><Sidebar /></div>
+      <div className="container">no</div>
     </div>
   );
 };

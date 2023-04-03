@@ -1,40 +1,77 @@
 import React, { useState } from "react";
-import Dropdown from "./Sidebar";
+import { Dropdown } from "semantic-ui-react";
 
-const Sidebar = ({
-  subscriptions,
-  resourceGroups,
-  resources,
-  otherOptions,
-}) => {
-  const [selectedSubscription, setSelectedSubscription] = useState(null);
-  const [selectedResourceGroup, setSelectedResourceGroup] = useState(null);
-  const [selectedResource, setSelectedResource] = useState(null);
-  const [selectedOtherOption, setSelectedOtherOption] = useState(null);
+const Sidebar = () => {
+  const [subscription, setSubscription] = useState("");
+  const [resourceGroup, setResourceGroup] = useState("");
+  const [resource, setResource] = useState("");
+  const [pipeline, setPipeline] = useState("");
 
-  const handleSubscriptionSelect = (option) => {
-    setSelectedSubscription(option);
+  // Options for the dropdowns (you'll need to replace these with your own data)
+  const subscriptionOptions = [
+    { key: "sub1", text: "Subscription 1", value: "sub1" },
+    { key: "sub2", text: "Subscription 2", value: "sub2" },
+    { key: "sub3", text: "Subscription 3", value: "sub3" },
+  ];
+
+  const resourceGroupOptions = [
+    { key: "rg1", text: "Resource Group 1", value: "rg1" },
+    { key: "rg2", text: "Resource Group 2", value: "rg2" },
+    { key: "rg3", text: "Resource Group 3", value: "rg3" },
+  ];
+
+  const resourceOptions = [
+    { key: "res1", text: "Resource 1", value: "res1" },
+    { key: "res2", text: "Resource 2", value: "res2" },
+    { key: "res3", text: "Resource 3", value: "res3" },
+  ];
+
+  const pipelineOptions = [
+    { key: "pipe1", text: "Pipeline 1", value: "pipe1" },
+    { key: "pipe2", text: "Pipeline 2", value: "pipe2" },
+    { key: "pipe3", text: "Pipeline 3", value: "pipe3" },
+  ];
+
+  // Event handlers for when the dropdowns are changed
+  const handleSubscriptionChange = (e, { value }) => {
+    setSubscription(value);
   };
 
-  const handleResourceGroupSelect = (option) => {
-    setSelectedResourceGroup(option);
+  const handleResourceGroupChange = (e, { value }) => {
+    setResourceGroup(value);
   };
 
-  const handleResourceSelect = (option) => {
-    setSelectedResource(option);
+  const handleResourceChange = (e, { value }) => {
+    setResource(value);
   };
 
-  const handleOtherOptionSelect = (option) => {
-    setSelectedOtherOption(option);
+  const handlePipelineChange = (e, { value }) => {
+    setPipeline(value);
   };
 
   return (
-    <div className="sidebar">
-      <h2>Filter by:</h2>
-      <Dropdown options={subscriptions} onSelect={handleSubscriptionSelect} />
-      <Dropdown options={resourceGroups} onSelect={handleResourceGroupSelect} />
-      <Dropdown options={resources} onSelect={handleResourceSelect} />
-      <Dropdown options={otherOptions} onSelect={handleOtherOptionSelect} />
+    <div>
+      <div className="dropdown mt-5">
+        <button
+          className="btn btn-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Subscription id
+        </button>
+        <ul className="dropdown-menu mt-1">
+        {
+          subscriptionOptions.map((val, index) =>{
+            return (
+              <li key={index}>
+                {val.text}
+              </li>
+            )
+          })
+        }
+        </ul>
+      </div>
     </div>
   );
 };
