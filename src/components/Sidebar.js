@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Dropdown } from "semantic-ui-react";
+import "./Sidebar.css"
 
 const Sidebar = () => {
   const [subscription, setSubscription] = useState("");
@@ -51,16 +52,16 @@ const Sidebar = () => {
 
   return (
     <div>
-      <div className="dropdown mt-5">
+      <div className="dropdown  ">
         <button
-          className="btn btn-secondary dropdown-toggle"
+          className="btn btn-light dropdown-toggle dropdown-style"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           Subscription id
         </button>
-        <ul className="dropdown-menu mt-1">
+        <ul className="dropdown-menu">
         {
           subscriptionOptions.map((val, index) =>{
             return (
@@ -72,6 +73,49 @@ const Sidebar = () => {
         }
         </ul>
       </div>
+      <div className="dropdown  ">
+        <button
+          className="btn dropdown-toggle btn-light dropdown-style"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Resource Group Name
+        </button>
+        <ul className="dropdown-menu">
+        {
+          resourceGroupOptions.map((val, index) =>{
+            return (
+              <li key={index}>
+                {val.text}
+              </li>
+            )
+          })
+        }
+        </ul>
+      </div>
+      <div className="dropdown  ">
+        <button
+          className="btn btn-light dropdown-toggle dropdown-style"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+         Resource name
+        </button>
+        <ul className="dropdown-menu">
+        {
+          resourceOptions.map((val, index) =>{
+            return (
+              <li key={index}>
+                {val.text}
+              </li>
+            )
+          })
+        }
+        </ul>
+      </div>
+     
     </div>
   );
 };

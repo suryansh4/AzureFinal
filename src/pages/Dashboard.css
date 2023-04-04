@@ -5,8 +5,7 @@
   height: 100%;
 }
 .sidebar{
-  flex-grow: 2;
-  background-color: red;
+  background-color: white;
 }
 .container{
   flex-grow: 10;

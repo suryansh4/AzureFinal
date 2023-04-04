@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import "./Maincontainer.css";
 
-const maincontainer = () => {
+const Maincontainer = () => {
   return (
     <div>
-      
+     hwllo 
     </div>
-  )
-}
+  );
+};
 
-export default maincontainer
+export default Maincontainer;
