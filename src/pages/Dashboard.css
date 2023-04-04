@@ -7,7 +7,8 @@
 .sidebar{
   background-color: white;
 }
-.container{
+.containerr{
+  padding: 2rem;
   flex-grow: 10;
   
 }

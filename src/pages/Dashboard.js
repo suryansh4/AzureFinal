@@ -8,7 +8,7 @@ const Dashboard = () => {
   return (
     <div className="maincontainer">
       <div className="sidebar"><Sidebar /></div>
-      <div className="container"><Maincontainer/></div>
+      <div className="containerr"><Maincontainer/></div>
     </div>
   );
 };
