@@ -1,5 +1,16 @@
+.sidebar{
+    border: 2px solid black;
+    text-align: center;
+}
 .dropdown-style{
-    width: 15rem;
+    width: 90%;
     border-radius: 0;
     margin: 1rem;
+}
+.buttontext{
+    
+}
+.remove-margin{
+    margin: 2px;
+    margin-left: 5px;
 }

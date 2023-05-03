@@ -51,71 +51,88 @@ const Sidebar = () => {
   };
 
   return (
-    <div>
+    <div className="sidebar">
       <div className="dropdown  ">
+        <h6 className="remove-margin">Subscription</h6>
         <button
-          className="btn btn-light dropdown-toggle dropdown-style"
+          class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Subscription id
+          <span class="float-start">All</span>
         </button>
+
         <ul className="dropdown-menu">
-        {
-          subscriptionOptions.map((val, index) =>{
-            return (
-              <li key={index}>
-                {val.text}
-              </li>
-            )
-          })
-        }
+          {subscriptionOptions.map((val, index) => {
+            return <li key={index}>{val.text}</li>;
+          })}
         </ul>
       </div>
       <div className="dropdown  ">
+        <h6 className="remove-margin">Resource Group</h6>
         <button
-          className="btn dropdown-toggle btn-light dropdown-style"
+          class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Resource Group Name
+          <span class="float-start">All</span>
         </button>
         <ul className="dropdown-menu">
-        {
-          resourceGroupOptions.map((val, index) =>{
-            return (
-              <li key={index}>
-                {val.text}
-              </li>
-            )
-          })
-        }
+          {resourceGroupOptions.map((val, index) => {
+            return <li key={index}>{val.text}</li>;
+          })}
         </ul>
       </div>
       <div className="dropdown  ">
+        <h6 className="remove-margin">Workspace Name</h6>
         <button
-          className="btn btn-light dropdown-toggle dropdown-style"
+          class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-         Resource name
+          <span class="float-start">All</span>
         </button>
         <ul className="dropdown-menu">
-        {
-          resourceOptions.map((val, index) =>{
-            return (
-              <li key={index}>
-                {val.text}
-              </li>
-            )
-          })
-        }
+          {resourceOptions.map((val, index) => {
+            return <li key={index}>{val.text}</li>;
+          })}
         </ul>
       </div>
-     
+      <div className="dropdown  ">
+        <h6 className="remove-margin">Workspace Name</h6>
+        <button
+          class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="float-start">All</span>
+        </button>
+        <ul className="dropdown-menu">
+          {resourceOptions.map((val, index) => {
+            return <li key={index}>{val.text}</li>;
+          })}
+        </ul>
+      </div>
+      <div className="dropdown  ">
+        <h6 className="remove-margin">Workspace Name</h6>
+        <button
+          class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="float-start">All</span>
+        </button>
+        <ul className="dropdown-menu">
+          {resourceOptions.map((val, index) => {
+            return <li key={index}>{val.text}</li>;
+          })}
+        </ul>
+      </div>
     </div>
   );
 };

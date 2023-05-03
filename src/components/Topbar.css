@@ -1,0 +1,10 @@
+.topbar{
+    text-align: center;
+    height: 3rem;
+    background-color: yellow;
+}
+.refresh-button{
+    position: absolute;
+    right: 2rem;
+    top: 0.25rem;
+}

@@ -13,7 +13,7 @@ const otherOptions = ["Option 1", "Option 2", "Option 3"];
 
 function App() {
   return (
-    <div className="app">
+    <div>
     
       <Dashboard />
         
