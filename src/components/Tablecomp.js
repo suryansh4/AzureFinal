@@ -36,6 +36,39 @@ function Tablecomp() {
         { id: 3, name: "Lucas", age: 9, mobile: "+61 2 1234 0003" },
       ],
     },
+    {
+      id: 4,
+      name: "Bob Johnson",
+      age: 45,
+      mobile: "+61 2 1234 5678",
+      children: [
+        { id: 1, name: "Jack", age: 15, mobile: "+61 2 1234 0001" },
+        { id: 2, name: "Olivia", age: 12, mobile: "+61 2 1234 0002" },
+        { id: 3, name: "Lucas", age: 9, mobile: "+61 2 1234 0003" },
+      ],
+    },
+    {
+      id: 5,
+      name: "Bob Johnson",
+      age: 45,
+      mobile: "+61 2 1234 5678",
+      children: [
+        { id: 1, name: "Jack", age: 15, mobile: "+61 2 1234 0001" },
+        { id: 2, name: "Olivia", age: 12, mobile: "+61 2 1234 0002" },
+        { id: 3, name: "Lucas", age: 9, mobile: "+61 2 1234 0003" },
+      ],
+    },
+    {
+      id: 6,
+      name: "Bob Johnson",
+      age: 45,
+      mobile: "+61 2 1234 5678",
+      children: [
+        { id: 1, name: "Jack", age: 15, mobile: "+61 2 1234 0001" },
+        { id: 2, name: "Olivia", age: 12, mobile: "+61 2 1234 0002" },
+        { id: 3, name: "Lucas", age: 9, mobile: "+61 2 1234 0003" },
+      ],
+    },
   ];
 
   const handleRowClick = (id) => {
@@ -47,34 +80,36 @@ function Tablecomp() {
   };
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Mobile</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((parent) => (
-          <React.Fragment key={parent.id}>
-            <tr onClick={() => handleRowClick(parent.id)}>
-              <td>{parent.name}</td>
-              <td>{parent.age}</td>
-              <td>{parent.mobile}</td>
-            </tr>
-            {openRows.includes(parent.id) &&
-              parent.children.map((child) => (
-                <tr key={child.id}>
-                  <td>{child.name}</td>
-                  <td>{child.age}</td>
-                  <td>{child.mobile}</td>
-                </tr>
-              ))}
-          </React.Fragment>
-        ))}
-      </tbody>
-    </table>
+    <div className="table-costum">
+      <table>
+        <thead>
+          <tr className="bg-light">
+            <th>Name</th>
+            <th>Age</th>
+            <th>Mobile</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((parent) => (
+            <React.Fragment key={parent.id}>
+              <tr onClick={() => handleRowClick(parent.id)}>
+                <td>{parent.name}</td>
+                <td>{parent.age}</td>
+                <td>{parent.mobile}</td>
+              </tr>
+              {openRows.includes(parent.id) &&
+                parent.children.map((child) => (
+                  <tr key={child.id}>
+                    <td>{child.name}</td>
+                    <td>{child.age}</td>
+                    <td>{child.mobile}</td>
+                  </tr>
+                ))}
+            </React.Fragment>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

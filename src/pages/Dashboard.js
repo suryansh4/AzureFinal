@@ -7,22 +7,25 @@ import Topbar from "../components/Topbar";
 
 const Dashboard = () => {
   return (
-    <div className="container-fluid dashboard ">
+    <div className="dashboard">
         <div className="row top-section">
-          <div className="col=12 remove-padding">
+          <div className="col-12 remove-padding">
             <Topbar />
           </div>
         </div>
         <div className="row bottom-section ">
-          <div className="col-3 sidebar ">
-            <Sidebar />
+          <div className="col-3">
+            <div className="sidebar">
+              <Sidebar />
+            </div>
           </div>
-          <div className="col-9 mainwindow ">
-            <Maincontainer />
+          <div className="col-9">
+            <div className="mainwindow">
+              <Maincontainer />
+            </div>
           </div>
         </div>
       </div>
- 
   );
 };
 

@@ -1,11 +1,19 @@
 import React from 'react'
 import './Topbar.css'
+import Topimage from '../img/topimg.png'
 
 const Topbar = () => {
   return (
     <div className="topbar">
-      <span className="header-heading">Azure Monitoring Tool</span>
-      <span className='refresh-button'>
+      <div className='topimg'>
+        <img
+          className="topimage"
+          src={Topimage}
+          alt="Top Image"
+        />
+      </div>
+      <div className="header-heading">Azure Monitoring Tool</div>
+      <span className="refresh-button">
         <button type="button" class="btn btn-outline-primary">
           Refresh Status
         </button>

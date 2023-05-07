@@ -1,16 +1,33 @@
-.sidebar{
-    border: 2px solid black;
+/* .sidebar{
+    height: 100rem;
     text-align: center;
+} */
+.dropdown-style {
+  width: 90%;
+  border-radius: 0;
+  margin: 1rem;
 }
-.dropdown-style{
-    width: 90%;
-    border-radius: 0;
-    margin: 1rem;
+.buttontext {
 }
-.buttontext{
-    
+.remove-margin {
+  margin: 2px;
+  margin-left: 5px;
 }
-.remove-margin{
-    margin: 2px;
-    margin-left: 5px;
+.btn-headings {
+  text-align: left;
+  padding-left: 22px;
+  padding-bottom: 6px;
+  padding-top: 13px;
+}
+.choice {
+  display: flex;
+  border-radius: 0;
+  justify-content: space-between;
+  padding-left: 22px;
+  padding-bottom: 6px;
+  padding-right: 22px;
+  padding-top: 13px;
+}
+.btn-costum{
+    width: 10rem;
 }

@@ -51,9 +51,9 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="sidebar">
-      <div className="dropdown  ">
-        <h6 className="remove-margin">Subscription</h6>
+    <div className="">
+      <div className="dropdown">
+        <h6 className="remove-margin btn-headings">Subscription</h6>
         <button
           class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
           type="button"
@@ -70,7 +70,32 @@ const Sidebar = () => {
         </ul>
       </div>
       <div className="dropdown  ">
-        <h6 className="remove-margin">Resource Group</h6>
+        <h6 className="remove-margin btn-headings">Resource Group</h6>
+        <button
+          class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="float-start">All</span>
+        </button>
+        <ul className="dropdown-menu">
+          {resourceGroupOptions.map((val, index) => {
+            return <li key={index}>{val.text}</li>;
+          })}
+        </ul>
+      </div>
+      <h6 className="remove-margin">Resources</h6>
+      <div className="choice">
+        <button type="button" class="btn btn-costum btn-outline-primary">
+          ADF
+        </button>
+        <button type="button" class="btn btn-costum btn-outline-primary">
+          ASA
+        </button>
+      </div>
+      <div className="dropdown  ">
+        <h6 className="remove-margin btn-headings">Last Run After</h6>
         <button
           class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
           type="button"
@@ -86,7 +111,7 @@ const Sidebar = () => {
         </ul>
       </div>
       <div className="dropdown  ">
-        <h6 className="remove-margin">Workspace Name</h6>
+        <h6 className="remove-margin btn-headings">Last Run Before</h6>
         <button
           class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
           type="button"
@@ -96,13 +121,13 @@ const Sidebar = () => {
           <span class="float-start">All</span>
         </button>
         <ul className="dropdown-menu">
-          {resourceOptions.map((val, index) => {
+          {resourceGroupOptions.map((val, index) => {
             return <li key={index}>{val.text}</li>;
           })}
         </ul>
       </div>
       <div className="dropdown  ">
-        <h6 className="remove-margin">Workspace Name</h6>
+        <h6 className="remove-margin btn-headings">Pipelines</h6>
         <button
           class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
           type="button"
@@ -112,23 +137,7 @@ const Sidebar = () => {
           <span class="float-start">All</span>
         </button>
         <ul className="dropdown-menu">
-          {resourceOptions.map((val, index) => {
-            return <li key={index}>{val.text}</li>;
-          })}
-        </ul>
-      </div>
-      <div className="dropdown  ">
-        <h6 className="remove-margin">Workspace Name</h6>
-        <button
-          class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span class="float-start">All</span>
-        </button>
-        <ul className="dropdown-menu">
-          {resourceOptions.map((val, index) => {
+          {resourceGroupOptions.map((val, index) => {
             return <li key={index}>{val.text}</li>;
           })}
         </ul>

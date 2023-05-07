@@ -6,25 +6,27 @@ import PieChart from "./PieChart";
 
 const Maincontainer = () => {
   return (
-    <div className="row maincontainer">
-      <div className="col">
-        <Cardcomp />
-      </div>
-      <div className="col">
-        <Cardcomp />
-      </div>
-      <div className="col">
-        <Cardcomp />
-      </div>
+    <div className="maincontainer card-container">
       <div className="row">
+        <div className="col">
+          <Cardcomp />
+        </div>
+        <div className="col">
+          <Cardcomp />
+        </div>
+        <div className="col">
+          <Cardcomp />
+        </div>
+      </div>
+      <div className="row table-container">
+        <div className="col-12 table-heading">Pipeline Details</div>
         <div className="col-9">
-         <Tablecomp />
+          <Tablecomp />
         </div>
         <div className="col-3">
-         <PieChart />
+          <PieChart />
         </div>
       </div>
-      
     </div>
   );
 };
