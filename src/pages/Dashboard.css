@@ -1,3 +1,14 @@
+.dashboard{
+  width: 100;
+  height: 100vh;
+  background-color: rgba(187, 182, 182, 0.904);
+}
+.top-section{
+  height: 10%;
+}
+.bottom-section{
+  height: 70%;
+}
 .mainwindow{
   background-color: red;
 }
@@ -8,4 +19,8 @@
 .sidebar{
   background-color: white;
   margin: 2px solid red;
+  bottom: 0%;
+}
+.remove-padding{
+  padding: 0;
 }

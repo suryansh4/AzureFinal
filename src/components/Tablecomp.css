@@ -1,0 +1,47 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    height: 300px;
+    /* set the height of the table here */
+    overflow-y: scroll;
+    /* add vertical scroll bar when table exceeds height */
+}
+
+thead th {
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ff0000;
+    /* set background color of parent rows */
+    color: #fff;
+    cursor: pointer;
+}
+tbody tr:nth-child(even) {
+    background-color: #ff0000;
+    /* set background color of parent rows */
+    color: black;
+    cursor: pointer;
+}
+
+tbody tr:nth-child(odd):hover {
+    background-color: #cc0000;
+    /* set background color of hovered parent rows */
+}
+
+tbody tr:nth-child(even) td {
+    background-color: #b3d9ff;
+    /* set background color of child rows */
+}
+
+tbody tr:nth-child(odd) td {
+    background-color: #99ccff;
+    /* set background color of child rows */
+}
