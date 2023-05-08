@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Dropdown } from "semantic-ui-react";
+import { Link } from 'react-router-dom';
 import "./Sidebar.css"
 
 const Sidebar = () => {
@@ -49,6 +50,7 @@ const Sidebar = () => {
   const handlePipelineChange = (e, { value }) => {
     setPipeline(value);
   };
+ 
 
   return (
     <div className="">
@@ -86,13 +88,30 @@ const Sidebar = () => {
         </ul>
       </div>
       <h6 className="remove-margin">Resources</h6>
+      {/* button section */}
       <div className="choice">
-        <button type="button" class="btn btn-costum btn-outline-primary">
+        <button type="button" class="btn btn-costum btn-outline-primary" >
           ADF
         </button>
         <button type="button" class="btn btn-costum btn-outline-primary">
           ASA
         </button>
+      </div>
+      <div className="dropdown  ">
+        <h6 className="remove-margin btn-headings">Workspace Name</h6>
+        <button
+          class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="float-start">All</span>
+        </button>
+        <ul className="dropdown-menu">
+          {resourceGroupOptions.map((val, index) => {
+            return <li key={index}>{val.text}</li>;
+          })}
+        </ul>
       </div>
       <div className="dropdown  ">
         <h6 className="remove-margin btn-headings">Last Run After</h6>
