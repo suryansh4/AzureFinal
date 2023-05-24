@@ -16,9 +16,15 @@ const Sidebar = () => {
   ];
 
   const resourceGroupOptions = [
-    { key: "rg1", text: "Resource Group 1", value: "rg1" },
-    { key: "rg2", text: "Resource Group 2", value: "rg2" },
-    { key: "rg3", text: "Resource Group 3", value: "rg3" },
+    { key: "rg1", parent: "Subscription 1", text: "Resource Group 1.1", value: "rg1" },
+    { key: "rg2", parent: "Subscription 1", text: "Resource Group 1.2", value: "rg2" },
+    { key: "rg3", parent: "Subscription 1", text: "Resource Group 1.3", value: "rg3" },
+    { key: "rg1", parent: "Subscription 2", text: "Resource Group 2.1", value: "rg1" },
+    { key: "rg2", parent: "Subscription 2", text: "Resource Group 2.2", value: "rg2" },
+    { key: "rg3", parent: "Subscription 2", text: "Resource Group 2.3", value: "rg3" },
+    { key: "rg1", parent: "Subscription 3", text: "Resource Group 3.1", value: "rg1" },
+    { key: "rg2", parent: "Subscription 3", text: "Resource Group 3.2", value: "rg2" },
+    { key: "rg3", parent: "Subscription 3", text: "Resource Group 3.3", value: "rg3" },
   ];
 
   const resourceOptions = [
@@ -87,16 +93,18 @@ const Sidebar = () => {
           <span class="float-start">{resourceGroup}</span>
         </button>
         <ul className="dropdown-menu">
-          {resourceGroupOptions.map((val, index) => {
-            return (
-              <li
-                key={index}
-                onClick={() => handleResourceGroupChange(val.text)}
-              >
-                {val.text}
-              </li>
-            );
-          })}
+          {resourceGroupOptions
+            .filter((option) => option.parent === subscription)
+            .map((val, index) => {
+              return (
+                <li
+                  key={index}
+                  onClick={() => handleResourceGroupChange(val.text)}
+                >
+                  {val.text}
+                </li>
+              );
+            })}
         </ul>
       </div>
       <h6 className="remove-margin">Resources</h6>
