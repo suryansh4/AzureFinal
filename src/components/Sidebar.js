@@ -3,10 +3,10 @@ import { Dropdown } from "semantic-ui-react";
 import "./Sidebar.css"
 
 const Sidebar = () => {
-  const [subscription, setSubscription] = useState("");
-  const [resourceGroup, setResourceGroup] = useState("");
-  const [resource, setResource] = useState("");
-  const [pipeline, setPipeline] = useState("");
+  const [subscription, setSubscription] = useState("All");
+  const [resourceGroup, setResourceGroup] = useState("All");
+  const [resource, setResource] = useState("All");
+  const [pipeline, setPipeline] = useState("All");
 
   // Options for the dropdowns (you'll need to replace these with your own data)
   const subscriptionOptions = [
@@ -34,11 +34,11 @@ const Sidebar = () => {
   ];
 
   // Event handlers for when the dropdowns are changed
-  const handleSubscriptionChange = (e, { value }) => {
+  const handleSubscriptionChange = (value) => {
     setSubscription(value);
   };
 
-  const handleResourceGroupChange = (e, { value }) => {
+  const handleResourceGroupChange = (value) => {
     setResourceGroup(value);
   };
 
@@ -46,7 +46,7 @@ const Sidebar = () => {
     setResource(value);
   };
 
-  const handlePipelineChange = (e, { value }) => {
+  const handlePipelineChange = (value) => {
     setPipeline(value);
   };
 
@@ -60,12 +60,19 @@ const Sidebar = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <span class="float-start">All</span>
+          <span class="float-start">{subscription}</span>
         </button>
 
         <ul className="dropdown-menu">
           {subscriptionOptions.map((val, index) => {
-            return <li key={index}>{val.text}</li>;
+            return (
+              <li
+                key={index}
+                onClick={() => handleSubscriptionChange(val.text)}
+              >
+                {val.text}
+              </li>
+            );
           })}
         </ul>
       </div>
@@ -77,11 +84,18 @@ const Sidebar = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <span class="float-start">All</span>
+          <span class="float-start">{resourceGroup}</span>
         </button>
         <ul className="dropdown-menu">
           {resourceGroupOptions.map((val, index) => {
-            return <li key={index}>{val.text}</li>;
+            return (
+              <li
+                key={index}
+                onClick={() => handleResourceGroupChange(val.text)}
+              >
+                {val.text}
+              </li>
+            );
           })}
         </ul>
       </div>
@@ -102,7 +116,7 @@ const Sidebar = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <span class="float-start">All</span>
+          <span class="float-start">{resource}</span>
         </button>
         <ul className="dropdown-menu">
           {resourceGroupOptions.map((val, index) => {
@@ -134,11 +148,15 @@ const Sidebar = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <span class="float-start">All</span>
+          <span class="float-start">{pipeline}</span>
         </button>
         <ul className="dropdown-menu">
-          {resourceGroupOptions.map((val, index) => {
-            return <li key={index}>{val.text}</li>;
+          {pipelineOptions.map((val, index) => {
+            return (
+              <li key={index} onClick={() => handlePipelineChange(val.text)}>
+                {val.text}{" "}
+              </li>
+            );
           })}
         </ul>
       </div>
