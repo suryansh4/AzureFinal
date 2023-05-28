@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import "./Sidebar.css"
 const Sidebar = () => {
   const [subscription, setSubscription] = useState("");
-  const [resourceGroup, setResourceGroup] = useState("");
+  const [resourceGroup, setResourceGroup] = useState("All");
   const [resource, setResource] = useState("");
   const [pipeline, setPipeline] = useState("");
 
@@ -177,13 +177,20 @@ const Sidebar = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-        <span className="float-start">All</span>
+          <span className="float-start">All</span>
         </button>
 
         <ul className="dropdown-menu">
           {subscriptionOptions.map((val) => {
-              return <li key={val.text} onClick={() => handleSubscriptionOptionClick(val.value)} >{val.key} : {val.value}</li>
-            })}
+            return (
+              <li
+                key={val.text}
+                onClick={() => handleSubscriptionOptionClick(val.value)}
+              >
+                {val.key} : {val.value}
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className="dropdown  ">
@@ -198,17 +205,29 @@ const Sidebar = () => {
         </button>
         <ul className="dropdown-menu">
           {resourceGroupOptions.map((val) => {
-            return <li key={val} onClick={() => handleResourceGroupOptionClick(val.text,val.value)}>{val.value}</li>;
+            return (
+              <li
+                key={val}
+                onClick={() =>
+                  handleResourceGroupOptionClick(val.text, val.value)
+                }
+              >
+                {val.value}
+              </li>
+            );
           })}
         </ul>
       </div>
       <h6 className="remove-margin">Resources</h6>
-      {/* button section */}
       <div className="choice">
-        <button type="button" class="btn btn-costum btn-outline-primary" >
+        <button type="button" class="btn btn-costum btn-outline-primary">
           ADF
         </button>
-        <button onClick={handleSubscriptionButtonClick} type="button" class="btn btn-costum btn-outline-primary">
+        <button
+          onClick={handleSubscriptionButtonClick}
+          type="button"
+          class="btn btn-costum btn-outline-primary"
+        >
           ASA
         </button>
       </div>
@@ -224,41 +243,34 @@ const Sidebar = () => {
         </button>
         <ul className="dropdown-menu">
           {ADFOptions.map((val) => {
-            return <li key={val.key} onClick={() => handleADFOptionClick(val.key,val.text,val.value)}>{val.key}</li>;
+            return (
+              <li
+                key={val.key}
+                onClick={() =>
+                  handleADFOptionClick(val.key, val.text, val.value)
+                }
+              >
+                {val.key}
+              </li>
+            );
           })}
         </ul>
       </div>
       <div className="dropdown  ">
         <h6 className="remove-margin btn-headings">Last Run After</h6>
-        <button
-          class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span class="float-start">All</span>
-        </button>
-        <ul className="dropdown-menu">
-          {before.map((val, index) => {
-            return <li key={index}>{val.text}</li>;
-          })}
-        </ul>
+        <input
+          type="datetime-local"
+          className="time-input remove-margin text-end buttontext btn border-primary text-dark dropdown-style"
+          id="lastRunBefore"
+        />
       </div>
       <div className="dropdown  ">
-        <h6 className="remove-margin btn-headings">Last Run Before</h6>
-        <button
-          class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span class="float-start">All</span>
-        </button>
-        <ul className="dropdown-menu">
-          { after.map((val, index) => {
-            return <li key={index}>{val.text}</li>;
-          })}
-        </ul>
+        <h6 className="time-input remove-margin btn-headings">Last Run Before</h6>
+        <input
+          type="datetime-local"
+          className="remove-margin text-end buttontext btn border-primary text-dark dropdown-style"
+          id="lastRunBefore"
+        />
       </div>
       <div className="dropdown  ">
         <h6 className="remove-margin btn-headings">Pipelines</h6>
@@ -273,6 +285,26 @@ const Sidebar = () => {
         <ul className="dropdown-menu">
           {PipelineOptions.map((val) => {
             return <li key={val.key}>{val.value}</li>;
+          })}
+        </ul>
+      </div>
+      <div className="dropdown">
+        <h6 className="remove-margin btn-headings">dummy</h6>
+        <button
+          class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="float-start">{resourceGroup}</span>
+        </button>
+        <ul className="dropdown-menu">
+          {resourceGroupOption.map((val) => {
+            return (
+              <li key={val.key} onClick={() => handleResourceGroupChange(val.value)}>
+                {val.value}
+              </li>
+            );
           })}
         </ul>
       </div>
