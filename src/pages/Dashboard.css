@@ -1,10 +1,10 @@
 .dashboard {
-  height: 100vh;
-  bottom: 0;
+  
+  /* bottom: 0;  */
   background: #d8f308 0% 0% no-repeat padding-box;
   opacity: 1;
-  box-sizing: border-box;
-  width: 99.5%;
+  /* box-sizing: border-box; */
+  width: 99.3%;
 }
 .top-section {
   height: 5rem;
@@ -13,7 +13,7 @@
   background: #e0e5e8 0% 0% no-repeat padding-box;
   opacity: 1;
   padding: 26px;
-  height: 88.5%;
+  display: flex;
  
 }
 .mainwindow {
