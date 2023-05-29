@@ -3,62 +3,11 @@ import { Dropdown } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 import "./Sidebar.css"
 const Sidebar = () => {
-  const [subscription, setSubscription] = useState("");
+  const [subscription, setSubscription] = useState("All");
   const [resourceGroup, setResourceGroup] = useState("All");
-  const [resource, setResource] = useState("");
-  const [pipeline, setPipeline] = useState("");
-
-  // Options for the dropdowns (you'll need to replace these with your own data)
-  // const subscriptionOption = [
-  //   { key: "sub1", text: "Subscription 1", value: "sub1" },
-  //   { key: "sub2", text: "Subscription 2", value: "sub2" },
-  //   { key: "sub3", text: "Subscription 3", value: "sub3" },
-  // ];
-
-  const resourceGroupOption = [
-      { key: "rg1", text: "Resource Group 1", value: "rg1" },
-      { key: "rg2", text: "Resource Group 2", value: "rg2" },
-      { key: "rg3", text: "Resource Group 3", value: "rg3" },
-      { key: "rg4", text: "Resource Group 4", value: "rg4" },
-      { key: "rg5", text: "Resource Group 5", value: "rg5" },
-      { key: "rg6", text: "Resource Group 6", value: "rg6" },
-      { key: "rg7", text: "Resource Group 7", value: "rg7" },
-      { key: "rg8", text: "Resource Group 8", value: "rg8" },
-      { key: "rg9", text: "Resource Group 9", value: "rg9" },
-      { key: "rg10", text: "Resource Group 10", value: "rg10" },
-      { key: "rg11", text: "Resource Group 11", value: "rg11" },
-      { key: "rg12", text: "Resource Group 12", value: "rg12" },
-      { key: "rg13", text: "Resource Group 13", value: "rg13" },
-      { key: "rg14", text: "Resource Group 14", value: "rg14" },
-      { key: "rg15", text: "Resource Group 15", value: "rg15" },
-      { key: "rg16", text: "Resource Group 16", value: "rg16" },
-      { key: "rg17", text: "Resource Group 17", value: "rg17" },
-      { key: "rg18", text: "Resource Group 18", value: "rg18" },
-      { key: "rg19", text: "Resource Group 19", value: "rg19" },
-      { key: "rg20", text: "Resource Group 20", value: "rg20" },
-      { key: "rg21", text: "Resource Group 21", value: "rg21" },
-      { key: "rg22", text: "Resource Group 22", value: "rg22" },
-      { key: "rg23", text: "Resource Group 23", value: "rg23" },
-      { key: "rg24", text: "Resource Group 24", value: "rg24" },
-      { key: "rg25", text: "Resource Group 25", value: "rg25" },
-      { key: "rg26", text: "Resource Group 26", value: "rg26" },
-      { key: "rg27", text: "Resource Group 27", value: "rg27" },
-      { key: "rg28", text: "Resource Group 28", value: "rg28" },
-      { key: "rg29", text: "Resource Group 29", value: "rg29" },
-      { key: "rg30", text: "Resource Group 30", value: "rg30" },
-  ];
-
-  const resourceOptions = [
-    { key: "res1", text: "Resource 1", value: "res1" },
-    { key: "res2", text: "Resource 2", value: "res2" },
-    { key: "res3", text: "Resource 3", value: "res3" },
-  ];
-
-  const pipelineOptions = [
-    { key: "pipe1", text: "Pipeline 1", value: "pipe1" },
-    { key: "pipe2", text: "Pipeline 2", value: "pipe2" },
-    { key: "pipe3", text: "Pipeline 3", value: "pipe3" },
-  ];
+  const [resource, setResource] = useState("All");
+  const [pipeline, setPipeline] = useState("All");
+ 
   const before = []
   const after = []
   // Event handlers for when the dropdowns are changed
@@ -118,7 +67,8 @@ const Sidebar = () => {
       return convertedData;
     };
     const [resourceGroupOptions, setResourceResponseOptions] = useState([]);
-    const handleSubscriptionOptionClick = (option) => {
+    const handleSubscriptionOptionClick = (option, option2) => {
+      setSubscription(option2)
       fetch('http://192.168.2.43:5000/resourceGroup', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -150,6 +100,7 @@ const Sidebar = () => {
     };
     const [ADFOptions, setADFResponseOptions] = useState([]);
     const handleResourceGroupOptionClick = (subscription, ResourceGroup) => {
+      setResourceGroup(ResourceGroup)
       fetch('http://192.168.2.43:5000/ADF', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -178,8 +129,10 @@ const Sidebar = () => {
     
       return convertedData;
     };
+    
     const [PipelineOptions, setPipelineResponseOptions] = useState([]);
     const handleADFOptionClick = (ADF, ResourceGroup,subscription) => {
+      setResource(ADF)
       fetch('http://192.168.2.43:5000/Pipeline', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -194,6 +147,9 @@ const Sidebar = () => {
           console.error('Error sending data to Flask:', error);
         });
     };
+    const handlePipelineClick =(pipeline)=>{
+      setPipeline(pipeline)
+    };
   return (
     <div className="">
       <div className="dropdown">
@@ -204,7 +160,7 @@ const Sidebar = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <span className="float-start">All</span>
+          <span className="float-start">{subscription}</span>
         </button>
 
         <ul className="dropdown-menu">
@@ -212,7 +168,7 @@ const Sidebar = () => {
             return (
               <li
                 key={val.text}
-                onClick={() => handleSubscriptionOptionClick(val.value)}
+                onClick={() => handleSubscriptionOptionClick(val.value, val.key)}
               >
                 {val.key} : {val.value}
               </li>
@@ -228,7 +184,7 @@ const Sidebar = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <span class="float-start">All</span>
+          <span class="float-start">{resourceGroup}</span>
         </button>
         <ul className="dropdown-menu">
           {resourceGroupOptions.map((val) => {
@@ -266,7 +222,7 @@ const Sidebar = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <span class="float-start">All</span>
+          <span class="float-start">{resource}</span>
         </button>
         <ul className="dropdown-menu">
           {ADFOptions.map((val) => {
@@ -307,31 +263,11 @@ const Sidebar = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <span class="float-start">All</span>
+          <span class="float-start">{pipeline}</span>
         </button>
         <ul className="dropdown-menu">
           {PipelineOptions.map((val) => {
-            return <li key={val.key}>{val.value}</li>;
-          })}
-        </ul>
-      </div>
-      <div className="dropdown">
-        <h6 className="remove-margin btn-headings">dummy</h6>
-        <button
-          class="remove-margin text-end buttontext btn border-primary text-dark dropdown-toggle dropdown-style"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span class="float-start">{resourceGroup}</span>
-        </button>
-        <ul className="dropdown-menu">
-          {resourceGroupOption.map((val) => {
-            return (
-              <li key={val.key} onClick={() => handleResourceGroupChange(val.value)}>
-                {val.value}
-              </li>
-            );
+            return <li key={val.key} onClick={()=>{handlePipelineClick(val.value)}}>{val.value}</li>;
           })}
         </ul>
       </div>
