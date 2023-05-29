@@ -2,7 +2,7 @@ import React from 'react'
 import './Topbar.css'
 import Topimage from '../img/topimg.png'
 
-const Topbar = () => {
+const Topbar = ({ refresh }) => {
   return (
     <div className="topbar">
       <div className='topimg'>
@@ -14,7 +14,7 @@ const Topbar = () => {
       </div>
       <div className="header-heading">Azure Monitoring Tool</div>
       <span className="refresh-button">
-        <button type="button" class="btn btn-outline-primary">
+        <button type="button" class="btn btn-outline-primary" onClick={refresh}>
           Refresh Status
         </button>
       </span>
