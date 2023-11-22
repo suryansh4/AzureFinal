@@ -42,3 +42,15 @@
 .remove-padding {
   padding: 0;
 }
+.workspace-section{
+  display: flex;
+  background-color: #e0e5e8;
+  padding-bottom: 0.5rem;
+}
+.workspace-btn-costum{
+  margin: 2px;
+}
+.workspace-btn-costum:focus{
+  background-color:#0275d8;
+  color: white;
+}

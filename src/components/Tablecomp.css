@@ -1,22 +1,23 @@
+.table-costum {
+  width: 100%;
+  height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  
-  /* set the height of the table here */
-  /* add vertical scroll bar when table exceeds height */
-}
-.table-costum{
-    width: 100%;
-    height: 400px;
-    overflow-y: auto;
-  overflow-x: auto;
 }
 
 thead th {
   background-color: #333;
   color: #fff;
   text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 tbody tr:nth-child(even) {
@@ -25,30 +26,47 @@ tbody tr:nth-child(even) {
 
 tbody tr:nth-child(odd) {
   background-color: #ff0000;
-  /* set background color of parent rows */
   color: #fff;
   cursor: pointer;
 }
+
 tbody tr:nth-child(even) {
   background-color: #ff0000;
-  /* set background color of parent rows */
   color: black;
   cursor: pointer;
 }
 
 tbody tr:nth-child(odd):hover {
   background-color: #cc0000;
-  /* set background color of hovered parent rows */
 }
 
 tbody tr:nth-child(even) td {
   background-color: #b3d9ff;
-  /* set background color of child rows */
 }
 
 tbody tr:nth-child(odd) td {
   background-color: #99ccff;
-  /* set background color of child rows */
+}
+
+/* Adjust font sizes and other styles as needed */
+th,
+td {
+  padding: 8px;
+  font-size: 14px;
+  white-space: nowrap; /* prevent text wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.child-rows td {
+  padding-left: 25px;
+  background-color: #ff9999;
 }
 
 
+/* Add specific styles for smaller screens */
+@media (max-width: 768px) {
+  th,
+  td {
+    font-size: 12px;
+  }
+}

@@ -31,6 +31,10 @@
 .btn-costum{
     width: 10rem;
 }
+.btn-costum:focus{
+  background-color: #0275d8;
+  color: white;
+}
 
 .dropdown-menu {
   position: absolute;
@@ -44,10 +48,6 @@
 
 .dropdown-menu:hover {
   cursor: pointer;
-  
-}
-.dropdown-menu li:hover {
-  font-weight: bold;
 }
 .dropdown-menu li {
   text-align: left;
@@ -69,4 +69,29 @@
 .time-input{
   text-align: left;
 }
+.static-li {
 
+  position: sticky;
+
+  top: 0;
+
+  z-index: 1;
+
+  background-color: #fff; /* Set the desired background color */
+
+}
+
+.selected{
+  background-color: #0275d8 !important;
+  color: white !important;
+}
+
+.w-100-scroll{
+  width: 100%;
+  overflow-x: auto;
+  text-align: left;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
